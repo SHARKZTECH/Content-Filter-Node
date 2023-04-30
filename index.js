@@ -1,7 +1,7 @@
 // index.js
 
 const express = require('express');
-const { getSimilarItems } = require('./content-based-filtering');
+const { getSimilarItemsByTitle } = require('./content-based-filtering');
 
 const app = express();
 
@@ -22,7 +22,7 @@ app.get('/items/:id/similar', (req, res) => {
   if (!item) {
     return res.status(404).send('Item not found');
   }
-  const similarItems = getSimilarItems(item, items);~
+  const similarItems = getSimilarItemsByTitle(item, items);~
   res.send(similarItems);
 });
 
