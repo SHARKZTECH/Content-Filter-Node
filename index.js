@@ -32,7 +32,7 @@ app.get('/items/:id/similar', (req, res) => {
   if (!item) {
     return res.status(404).send('Item not found');
   }
-  const similarItems = getSimilarItemsByTitle(item, items);~
+  const similarItems = getSimilarItemsByTitle(item.title, items);~
   res.send(similarItems);
 });
 

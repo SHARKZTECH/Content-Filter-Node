@@ -38,6 +38,13 @@ function getSimilarItemsByTitle(itemTitle, allItems) {
   // Return the top 5 most similar items
   const similarItems = sortedItems.slice(1, 6).map(item => item.item);
   return similarItems;
+
+  // Return the top 5 most similar items that contain the same part of the title
+
+  // const similarItems = sortedItems.slice(1, 6)
+  //   .filter(otherItem => otherItem.item.title.toLowerCase().includes(item.title.toLowerCase()))
+  //   .map(otherItem => otherItem.item);
+  // return similarItems;
 }
 
 module.exports = { getSimilarItemsByTitle };
