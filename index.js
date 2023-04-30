@@ -7,13 +7,23 @@ const app = express();
 
 // Define some example items
 const items = [
-  { id: 1, title: 'Product A' },
-  { id: 2, title: 'Product B' },
-  { id: 3, title: 'Product C' },
-  { id: 4, title: 'Product D' },
-  { id: 5, title: 'Product E' },
-  { id: 6, title: 'Product F' },
+  { id: 1, title: generateTitle() },
+  { id: 2, title: generateTitle() },
+  { id: 3, title: generateTitle() },
+  { id: 4, title: generateTitle() },
+  { id: 5, title: generateTitle() },
+  { id: 6, title: generateTitle() },
 ];
+
+function generateTitle() {
+  const adjectives = ['Red', 'Blue', 'Green', 'Yellow', 'Purple', 'Orange', 'Pink', 'Black', 'White', 'Gray'];
+  const nouns = ['Chair', 'Table', 'Book', 'Phone', 'Laptop', 'Shoe', 'Car', 'Bike', 'Hat', 'Shirt'];
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  const num = Math.floor(Math.random() * 1000);
+  return `${adjective} ${noun} ${num}`;
+}
+
 
 // Define a route to get similar items for a given item ID
 app.get('/items/:id/similar', (req, res) => {
